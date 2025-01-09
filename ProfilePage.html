@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Utilisateur</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: url('background-profile.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            backdrop-filter: blur(10px);
+        }
+
+        .profile-box {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            width: 400px;
+            text-align: center;
+        }
+
+        .profile-box h1 {
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            color: #333;
+        }
+
+        .profile-box img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            border: 3px solid #ff00ff;
+        }
+
+        .profile-box input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        .profile-box button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-save {
+            background-color: #00cc00;
+            color: white;
+        }
+
+        .btn-save:hover {
+            background-color: #009900;
+        }
+
+        .btn-delete {
+            background-color: #ff0000;
+            color: white;
+        }
+
+        .btn-delete:hover {
+            background-color: #cc0000;
+        }
+
+        .profile-box p {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="profile-box">
+            <h1>Profil</h1>
+            <img src="avatar-placeholder.png" alt="Photo de profil">
+            <form>
+                <input type="email" placeholder="Email" value="leonardopaccio@hotmail.fr" required>
+                <input type="text" placeholder="Nom et Prénom" value="Michael Jackson" required>
+                <button type="submit" class="btn-save">Sauvegarder</button>
+                <button type="button" class="btn-delete">Supprimer mon compte</button>
+            </form>
+            <p>Cliquez sur "Supprimer" pour effacer votre compte.</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page de Connexion</title>
+
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'MMRock9', Arial, sans-serif;
+            background: url('background-login.jpg') no-repeat center center fixed;
+            background-size: cover;
+            background-image: url('assets/mdp.jpg');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-box {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            width: 400px;
+            text-align: center;
+        }
+
+        .login-box h1 {
+            margin-bottom: 20px;
+            font-size: 20px;
+            color: #333;
+        }
+
+        .login-box input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        .login-box button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            background-color: #ff00ff;
+            color: white;
+            transition: background-color 0.3s;
+        }
+
+        .login-box button:hover {
+            background-color: #e000e0;
+        }
+
+        .login-box p {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .login-box a {
+            color: #ff00ff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .login-box a:hover {
+            text-decoration: underline;
+        }
+
+        @font-face {
+        font-family: 'MMRock9';
+        src: url('MMRock9.eot');
+        src: url('MMRock9.eot?#iefix') format('embedded-opentype'),
+             url('MMRock9.woff') format('woff'),
+             url('MMRock9.ttf') format('truetype'),
+             url('MMRock9.svg#MMRock9') format('svg');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    @media screen and (-webkit-min-device-pixel-ratio: 0) {
+        @font-face {
+            font-family: 'MMRock9';
+            src: url('MMRock9.svg') format('svg');
+            font-weight: normal;
+            font-style: normal;
+        }
+    }
+    input, button {
+    font-family: 'MMRock9', Arial, sans-serif;
+}
+
+
+    /* Appliquer la police globalement */
+    body {
+        font-family: 'MMRock9', Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+        /* Conteneur latéral pour le menu burger */
+        .sidebar {
+            position: fixed; /* Fixe le conteneur à gauche */
+            top: 0;
+            left: 0;
+            height: 100vh; /* Hauteur égale à la hauteur de la fenêtre */
+            width: 220px; /* Augmenter la largeur du rectangle contenant le menu */
+            background: rgba(255, 255, 255, 0.9);            
+            display: flex;
+            flex-direction: column; /* Alignement des éléments du menu en colonne */
+            justify-content: flex-start;
+            align-items: center;
+            z-index: 1000; /* Assure que le menu est au-dessus des autres éléments */
+        }
+
+        /* Style du menu burger sans carré autour */
+        .burger-menu {
+            margin-top: 10px; /* Décalage du burger vers le haut */
+            cursor: pointer;
+        }
+
+        /* Icône du menu burger */
+        .burger-icon {
+            font-size: 80px;
+            color: rgb(0, 0, 0);
+            background: transparent; /* Retirer le fond du carré */
+            border: none;
+        }
+
+        /* Style du menu déroulant qui apparaît sous le burger */
+        .menu-links {
+            display: none; /* Cacher le menu au départ */
+            position: absolute;
+            top: 130px; /* Place le menu juste en dessous du burger */
+            left: 0;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 95%; /* Utiliser la largeur complète du conteneur */
+            padding: 10px 0;
+            z-index: 999; /* S'assurer qu'il s'affiche par-dessus les autres éléments */
+        }
+
+        /* Liste des liens dans le menu */
+        .menu-links ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .menu-links li {
+            padding: 10px 20px;
+            display: flex;
+            align-items: center; /* Aligner l'icône et le texte */
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .menu-links a {
+            text-decoration: none;
+            color: #333;
+            font-size: 10px;
+        }
+        
+        /* Animer l'ouverture du menu */
+        .menu-links.open {
+            display: block; /* Afficher le menu quand la classe 'open' est ajoutée */
+            animation: slideIn 0.3s ease;
+        }
+
+        .menu-links img {
+    width: 40px; /* Taille des icônes */
+    height: 40px;
+    object-fit: contain; /* Eviter le déformement de l'image */
+    margin-right: 15px; /* Espacement entre l'icône et le texte */
+    position: relative;
+    top: 12px; /* Déplace uniquement l'icône vers le bas */
+}
+.login-box p {
+    line-height: 1.8; /* Augmente l'espacement des lignes */
+}
+
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Conteneur latéral du menu burger -->
+    <div class="sidebar">
+        <div class="burger-menu">
+            <button class="burger-icon" onclick="toggleMenu()">☰</button>
+        </div>
+        <div class="menu-links" id="menu">
+            <ul>
+                <li><a href="/parametre"><img src="assets/services-parametres-et-icone-d-engrenage-rose.png" alt="Paramètres"> Paramètres</a></li>
+                <li><a href="/profil"><img src="assets/profil-de-lutilisateur.png" alt="Profil"> Profil</a></li>
+                <li><a href="/collection"><img src="assets/collection-icon-2048x1856-mepwjc1w.png" alt="Collection"> Collection</a></li>
+            </ul>
+        </div>
+    </div>
+
+  
+    <div class="container">
+        <div class="login-box">
+            <h1>Se connecter</h1>
+            <form>
+                <input type="text" placeholder="Email / Nom d'utilisateur" required>
+                <input type="password" placeholder="Mot de passe" required>
+                <button type="submit">Connexion</button>
+            </form>
+            <p><a href="Mdp.html">Mot de passe oublié ?</a></p>
+            <p>Vous n'avez pas de compte ? <a href="register.html">Inscrivez-vous</a></p>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById('menu');
+            menu.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>

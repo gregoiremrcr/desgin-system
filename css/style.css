@@ -1,0 +1,168 @@
+/* Général */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    height: 100vh; /* Assure que la hauteur prend toute la fenêtre */
+}
+
+/* Barre latérale */
+.sidebar {
+    width: 250px; /* Largeur de la barre latérale */
+    background-color: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 20px;
+}
+
+/* Logo dans un carré */
+.logo {
+    width: 100px;
+    height: 100px;
+    background-color: #333; /* Couleur de fond du carré */
+    border-radius: 8px;
+    overflow: hidden; /* Pour ne pas dépasser du carré */
+    margin-bottom: 30px;
+}
+
+.logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* L'image remplit le carré sans déformation */
+}
+
+/* Menu Burger */
+.menu-burger {
+    position: relative;
+    width: 100%;
+}
+
+.burger-icon {
+    font-size: 30px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #333;
+}
+
+/* Menu déroulant sous le bouton burger */
+.menu-links {
+    display: none;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    padding: 10px 0;
+    z-index: 999;
+}
+
+.menu-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-links li {
+    padding: 10px 20px;
+}
+
+.menu-links a {
+    text-decoration: none;
+    color: #333;
+}
+
+/* Animation du menu */
+.menu-links.open {
+    display: block;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Contenu principal (formulaire de connexion) */
+.main-content {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f9f9f9;
+}
+
+/* Boîte de connexion */
+.login-box {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    width: 400px;
+    text-align: center;
+}
+
+/* Titre du formulaire */
+.login-box h1 {
+    margin-bottom: 20px;
+    font-size: 1.8em;
+    color: #333;
+}
+
+/* Champ de saisie */
+.login-box input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+/* Bouton de connexion */
+.login-box button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    background-color: #ff00ff;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+/* Effet au survol du bouton */
+.login-box button:hover {
+    background-color: #e000e0;
+}
+
+/* Liens et texte sous le formulaire */
+.login-box p {
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: #666;
+}
+
+.login-box a {
+    color: #ff00ff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Effet au survol des liens */
+.login-box a:hover {
+    text-decoration: underline;
+}
