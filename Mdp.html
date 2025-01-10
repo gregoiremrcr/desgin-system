@@ -53,21 +53,30 @@
 
         .login-box button {
             width: 100%;
-            padding: 10px;
+            padding: 10px 20px;
             margin-top: 20px;
             border: none;
             border-radius: 5px;
-            font-size: 1em;
+            font-size: 16px;
             cursor: pointer;
-            background-color: #ff00ff;
-            color: white;
+            background-color: #51CA59;
+            color: #ffffff;
             transition: background-color 0.3s;
         }
 
         .login-box button:hover {
-            background-color: #e000e0;
+            background-color: #356638;
         }
-
+        .login-box button:disabled {
+            background-color: #E0E0E0;
+            color: #000000;
+            cursor: not-allowed;
+        }
+        .login-box button:focus {
+            background-color: #51CA59; /* Couleur de fond lorsqu'il est focus */
+            outline: 2px solid #51CA59; /* Rectangle autour de l'élément */
+            outline-offset: 5px; /* Espace entre le rectangle et le bouton */
+        }
         .login-box p {
             margin-top: 20px;
             font-size: 0.9em;
@@ -130,11 +139,15 @@
             z-index: 1000; /* Assure que le menu est au-dessus des autres éléments */
         }
 
-        /* Style du menu burger sans carré autour */
         .burger-menu {
-            margin-top: 10px; /* Décalage du burger vers le haut */
-            cursor: pointer;
-        }
+    margin-top: 20px; /* Décalage du burger vers le haut */
+    cursor: pointer;
+    border-top: 1px solid #000;
+    width: 100%; /* Largeur de 100% du conteneur parent */
+    display: flex;
+    justify-content: center; /* Centrer horizontalement le bouton burger */
+    align-items: center; /* Centrer verticalement le bouton burger */
+}
 
         /* Icône du menu burger */
         .burger-icon {
@@ -143,13 +156,15 @@
             background: transparent; /* Retirer le fond du carré */
             border: none;
         }
+        .burger-icon img {
+        width: 100px;
+        height: 100px;
+        }
 
         /* Style du menu déroulant qui apparaît sous le burger */
         .menu-links {
             display: none; /* Cacher le menu au départ */
-            position: absolute;
-            top: 130px; /* Place le menu juste en dessous du burger */
-            left: 0;
+            margin-top: 20px; /* Espacement entre le burger et le menu */
             background-color: #fff;
             border: 1px solid #ccc;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -196,7 +211,18 @@
 .login-box p {
     line-height: 1.8; /* Augmente l'espacement des lignes */
 }
-
+hr {
+            width: 100%;            
+            margin: 20px auto;
+            border: 1px solid #000000;
+        }
+.logo-image {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
 
         @keyframes slideIn {
             from {
@@ -213,14 +239,17 @@
 <body>
     <!-- Conteneur latéral du menu burger -->
     <div class="sidebar">
+        <img src="assets/logo.png" alt="logo" class="logo-image">
         <div class="burger-menu">
-            <button class="burger-icon" onclick="toggleMenu()">☰</button>
+            <button class="burger-icon" onclick="toggleMenu()"><img src="assets/menu burger.png" alt="Menu burger"></button>
         </div>
         <div class="menu-links" id="menu">
             <ul>
                 <li><a href="/parametre"><img src="assets/services-parametres-et-icone-d-engrenage-rose.png" alt="Paramètres"> Paramètres</a></li>
-                <li><a href="/profil"><img src="assets/profil-de-lutilisateur.png" alt="Profil"> Profil</a></li>
+                <li><a href="ProfilePage.html"><img src="assets/profil-de-lutilisateur.png" alt="Profil"> Profil</a></li>
                 <li><a href="/collection"><img src="assets/collection-icon-2048x1856-mepwjc1w.png" alt="Collection"> Collection</a></li>
+                <li><a href="LoginPage.html"><img src="assets/Login-icon.png" alt="login"> Connexion</a>
+
             </ul>
         </div>
     </div>
@@ -233,7 +262,7 @@
             <form>
                 <input type="email" placeholder="Email" required>
                 <input type="text" placeholder="Nom d'utilisateur" required>
-                <button type="submit">Envoyer le lien</button>
+                <button class="button-secondaire">Envoyer le lien</button>
             </form>
             <p><a href="LoginPage.html">Retour à la page de connexion</a></p>
         </div>
@@ -241,8 +270,12 @@
 
     <script>
         function toggleMenu() {
-            var menu = document.getElementById('menu');
-            menu.classList.toggle('open');
+            const menu = document.getElementById('menu');
+            if (menu.classList.contains('open')) {
+                menu.classList.remove('open');
+            } else {
+                menu.classList.add('open');
+            }
         }
     </script>
 </body>
